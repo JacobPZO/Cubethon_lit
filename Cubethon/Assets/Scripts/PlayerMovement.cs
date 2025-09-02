@@ -11,6 +11,16 @@ public class PlayerMovement : MonoBehaviour
 
     public float forwardForce = 700f;
     public float sidewaysForce = 500f;
+    public float jumpForce;
+
+    void TryJump()
+    {
+        // create a ray facing down
+        Ray ray = new Ray(transform.position, Vector3.down);
+        // shoot the raycast
+        if (Physics.Raycast(ray, 1.5f))
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -25,7 +35,11 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
-        if(rb.position.y < -1f)
+        if (Input.GetKey(KeyCode.Space))
+        {
+            TryJump();
+        }
+        if (rb.position.y < -1f)
         {
             FindObjectOfType<GameManager>().EndGame();
         }

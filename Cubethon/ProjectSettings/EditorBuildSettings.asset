@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/02_SLALOM.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/03_BOSSMAN.unity
+    guid: 87408e1ecb7e91a4f9d8514d309a0e4c
+  - enabled: 1
     path: Assets/Scenes/WIN.unity
     guid: 97cec03c0a97e3141b48f983fc165344
   m_configObjects: {}
